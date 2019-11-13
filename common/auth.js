@@ -14,7 +14,12 @@ module.exports = () => {
     const user = await User.findById(payload.id);
     // success -> req.user = { id: user._id, email: user.email, name: user.name }로 담김
     if (user) {
-      return done(null, { id: user._id, email: user.email, name: user.name });
+      return done(null, {
+        id: user._id,
+        email: user.email,
+        name: user.name,
+        admin: user.admin
+      });
     } else {
       return done(new Error("user not found"), null);
     }
