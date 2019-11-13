@@ -12,7 +12,7 @@ const options = {
 module.exports = () => {
   const strategy = new Strategy(options, async (payload, done) => {
     const user = await User.findById(payload.id);
-    // success -> req.user = { id: user._id, email: user.email, name: user.name }로 담김
+    // success -> req.user = { id: user._id, email: user.email, name: user.name }? ??
     if (user) {
       return done(null, { id: user._id, email: user.email, name: user.name });
     } else {
