@@ -40,7 +40,7 @@ router.post("/login", async (req, res, next) => {
         admin: user.admin
       },
       jwtSecret,
-      { expiresIn: "1m" }
+      { expiresIn: "1h" }
     );
     res.json({ result: true, token, admin: user.admin });
     next();
@@ -48,6 +48,17 @@ router.post("/login", async (req, res, next) => {
     res.json({ result: false });
     next();
   }
+});
+
+router.get("/email", async (req, res, next) => {
+  const email = req.query.email;
+  const user = await User.findOne({ email });
+  if (user) {
+    res.json({ result: false });
+  } else {
+    res.json({ result: true });
+  }
+  next();
 });
 
 module.exports = router;
