@@ -6,11 +6,12 @@ const post = require("./routers/post");
 const user = require("./routers/user");
 const tag = require("./routers/tag");
 const comment = require("./routers/comment");
-const config = require("./common/jwt_config");
 const auth = require("./common/auth")();
+const cors = require("cors");
 
 const dbURI = process.env.MONGODB_URI || "mongodb://localhost/blog-dev";
 app.use(Helmet());
+app.use(cors());
 app.use((req, res, next) => {
   mongoose
     .connect(dbURI, {
