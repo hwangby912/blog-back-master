@@ -8,7 +8,7 @@ const tag = require("./routers/tag");
 const comment = require("./routers/comment");
 const auth = require("./common/auth")();
 const cors = require("cors");
-//test
+
 const dbURI = process.env.MONGODB_URI || "mongodb://localhost/blog-dev";
 app.use(Helmet());
 app.use(cors());
