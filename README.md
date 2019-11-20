@@ -119,3 +119,9 @@
 
 8. `할 일`을 모두 완료할 때까지 3~7을 계속 반복합니다.
 
+## admin account(test account)
+
+ID : admin@admin.com
+
+PW : 1234
+
